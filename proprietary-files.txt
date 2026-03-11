@@ -257,6 +257,11 @@ vendor/etc/ssg/tz_whitelist.json
 vendor/lib64/libqwes.so
 vendor/lib64/libtaautoload.so
 
+# DCF
+vendor/lib64/libDcfClientSensor.so
+vendor/lib64/libDcfHalFramework.so
+vendor/lib64/libDcfHalLogger.so
+
 # Diag
 system/lib64/vendor.qti.diaghal-V1-ndk.so:system_ext/lib64/vendor.qti.diaghal-V1-ndk.so
 system_ext/lib64/libdiag_system.so
@@ -267,11 +272,6 @@ vendor/etc/init/vendor.qti.diag.rc
 vendor/etc/vintf/manifest/vendor.qti.diag.hal.service.xml
 vendor/lib64/libdiag.so
 vendor/lib64/vendor.qti.diaghal-V1-ndk.so;MODULE_SUFFIX=_vendor
-
-# DCF
-vendor/lib64/libDcfClientSensor.so
-vendor/lib64/libDcfHalFramework.so
-vendor/lib64/libDcfHalLogger.so
 
 # DSP
 vendor/bin/dspservice
@@ -527,16 +527,6 @@ odm/etc/init/init.oppo.reserve.rc
 # Native public libraries
 vendor/etc/public.libraries.txt
 
-# OPLUS Log Core
-odm/bin/oldc_vnd
-odm/lib64/libolc_vnd.so
-vendor/lib64/libolc_vnd.so;MODULE_SUFFIX=_vendor
-
-# OSENSE
-odm/lib64/libosenseaidlhalclient.so
-odm/lib64/libosensenativeproxy_client.so
-vendor/lib64/libosensenativeproxy_client.so;MODULE_SUFFIX=_vendor
-
 # OPLUS Charger
 odm/bin/hw/gauged
 odm/bin/hw/ufcsd
@@ -547,15 +537,30 @@ odm/etc/vintf/manifest/manifest_oplus_charger_aidl.xml
 odm/etc/charge.cfg
 odm/lib64/libGaiaClient_vnd.so
 
+# OPLUS Log Core
+odm/bin/oldc_vnd
+odm/lib64/libolc_vnd.so
+vendor/lib64/libolc_vnd.so;MODULE_SUFFIX=_vendor
+
+# OSENSE
+odm/lib64/libosenseaidlhalclient.so
+odm/lib64/libosensenativeproxy_client.so
+vendor/lib64/libosensenativeproxy_client.so;MODULE_SUFFIX=_vendor
+
+# Pasrmanager
+vendor/bin/hw/vendor.qti.memory.pasrmanager-service
+vendor/etc/init/vendor.qti.memory.pasrmanager-service.rc
+vendor/etc/vintf/manifest/vendor.qti.memory.pasrmanager-service.xml
+vendor/lib64/hw/vendor.qti.memory.pasrmanager-impl.so
+vendor/lib64/libpasrutils.so
+vendor/lib64/vendor.qti.memory.pasrmanager-V1-ndk.so
+vendor/lib64/vendor.qti.memory.pasrmanager@1.0.so
+vendor/lib64/vendor.qti.memory.pasrmanager@1.1.so
+
 # PD
 vendor/bin/pd-mapper
 vendor/lib64/libpdmapper.so
 vendor/lib64/libpdnotifier.so
-
-# Peripheral manager
-vendor/bin/pm-proxy
-vendor/bin/pm-service
-vendor/lib64/libperipheral_client.so
 
 # Performance
 vendor/bin/hw/vendor.qti.hardware.perf2-hal-service
@@ -639,19 +644,10 @@ vendor/lib64/libvideooptfeature.so
 vendor/lib64/vendor.qti.hardware.perf2-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.power.powermodule-V1-ndk.so
 
-# Pasrmanager
-vendor/bin/hw/vendor.qti.memory.pasrmanager-service
-vendor/etc/init/vendor.qti.memory.pasrmanager-service.rc
-vendor/etc/vintf/manifest/vendor.qti.memory.pasrmanager-service.xml
-vendor/lib64/hw/vendor.qti.memory.pasrmanager-impl.so
-vendor/lib64/libpasrutils.so
-vendor/lib64/vendor.qti.memory.pasrmanager-V1-ndk.so
-vendor/lib64/vendor.qti.memory.pasrmanager@1.0.so
-vendor/lib64/vendor.qti.memory.pasrmanager@1.1.so
-
-# PSI Client
-vendor/bin/hw/vendor.qti.psiclient@1.0-service
-vendor/etc/init/vendor.qti.psiclient@1.0-service.rc
+# Peripheral manager
+vendor/bin/pm-proxy
+vendor/bin/pm-service
+vendor/lib64/libperipheral_client.so
 
 # Power-off alarm
 vendor/bin/hw/vendor.qti.hardware.alarm-service
@@ -665,6 +661,10 @@ vendor/lib64/vendor.qti.hardware.alarm-V1-ndk.so
 vendor/bin/hw/android.hardware.powerstats-service.qti
 vendor/etc/init/android.hardware.powerstats-service.rc
 vendor/etc/vintf/manifest/android.hardware.powerstats-service.xml
+
+# PSI Client
+vendor/bin/hw/vendor.qti.psiclient@1.0-service
+vendor/etc/init/vendor.qti.psiclient@1.0-service.rc
 
 # QCC
 system_ext/app/QCC/QCC.apk
@@ -696,19 +696,6 @@ vendor/lib64/vendor.qti.qccvndhal_aidl-halimpl.so
 # QCV
 vendor/bin/init.qti.qcv.sh
 vendor/etc/init/init.qti.qcv.rc
-
-# QSAP service
-vendor/bin/qsap_qapeservice
-vendor/etc/init/vendor.qsap.qapeservice.rc
-vendor/etc/seccomp_policy/qsap_qapeservice.policy
-
-# QSAP mpam service
-vendor/bin/qsap_mpamsvc
-vendor/etc/init/vendor.qsap.mpamsvc.rc
-vendor/etc/mpam/MPAMOptConfig.xml
-vendor/etc/mpam/config.json
-vendor/etc/mpam/usecases_full.json
-vendor/etc/seccomp_policy/qsap_mpamsvc.policy
 
 # QESDK
 vendor/etc/seccomp_policy/qesdksec.policy
@@ -754,37 +741,18 @@ vendor/lib64/libqrtr.so
 vendor/lib64/libqsocket.so
 vendor/lib64/libsmemlog.so
 
-# QSPA
-system_ext/etc/init/qspa_system.rc
-system_ext/etc/qspa/qspa_default.rc
+# QSAP mpam service
+vendor/bin/qsap_mpamsvc
+vendor/etc/init/vendor.qsap.mpamsvc.rc
+vendor/etc/mpam/MPAMOptConfig.xml
+vendor/etc/mpam/config.json
+vendor/etc/mpam/usecases_full.json
+vendor/etc/seccomp_policy/qsap_mpamsvc.policy
 
-# QSPM
-vendor/bin/vendor.qti.qspmhal-service
-vendor/etc/init/vendor.qti.qspmhal-service.rc
-vendor/etc/seccomp_policy/qspm.policy
-vendor/etc/vintf/manifest/vendor.qti.qspmhal-service.xml
-vendor/lib64/libqspm-mem-utils-vendor.so
-vendor/lib64/vendor.qti.qspmhal-V1-ndk.so
-vendor/lib64/vendor.qti.qspmhal-impl.so
-
-# QSN
-vendor/lib64/qsn1nrt430.bin
-vendor/lib64/qsn1nrt43270.bin
-vendor/lib64/qsn1rt1690_vga.bin
-vendor/lib64/qsn1rt169270_vga.bin
-vendor/lib64/qsn1rt430_vga.bin
-vendor/lib64/qsn1rt43270_vga.bin
-vendor/lib64/qsn2all.bin
-vendor/lib64/qsn3_video.bin
-vendor/lib64/qsn3all.bin
-
-# QTI service tracker
-vendor/bin/hw/vendor.qti.hardware.servicetrackeraidl-service
-vendor/bin/qt-service
-vendor/etc/init/init.qt-service.rc
-vendor/etc/init/vendor.qti.hardware.servicetrackeraidl-service.rc
-vendor/etc/vintf/manifest/vendor.qti.hardware.servicetrackeraidl-service.xml
-vendor/lib64/hw/vendor.qti.hardware.servicetrackeraidl-impl.so
+# QSAP service
+vendor/bin/qsap_qapeservice
+vendor/etc/init/vendor.qsap.qapeservice.rc
+vendor/etc/seccomp_policy/qsap_qapeservice.policy
 
 # QSEECOM
 vendor/bin/qseecomd
@@ -807,6 +775,38 @@ vendor/lib64/libssd.so
 vendor/lib64/libssdStaticHelper.so
 vendor/lib64/vendor.qti.hardware.qseecom-V1-ndk.so
 
+# QSN
+vendor/lib64/qsn1nrt430.bin
+vendor/lib64/qsn1nrt43270.bin
+vendor/lib64/qsn1rt1690_vga.bin
+vendor/lib64/qsn1rt169270_vga.bin
+vendor/lib64/qsn1rt430_vga.bin
+vendor/lib64/qsn1rt43270_vga.bin
+vendor/lib64/qsn2all.bin
+vendor/lib64/qsn3_video.bin
+vendor/lib64/qsn3all.bin
+
+# QSPA
+system_ext/etc/init/qspa_system.rc
+system_ext/etc/qspa/qspa_default.rc
+
+# QSPM
+vendor/bin/vendor.qti.qspmhal-service
+vendor/etc/init/vendor.qti.qspmhal-service.rc
+vendor/etc/seccomp_policy/qspm.policy
+vendor/etc/vintf/manifest/vendor.qti.qspmhal-service.xml
+vendor/lib64/libqspm-mem-utils-vendor.so
+vendor/lib64/vendor.qti.qspmhal-V1-ndk.so
+vendor/lib64/vendor.qti.qspmhal-impl.so
+
+# QTI service tracker
+vendor/bin/hw/vendor.qti.hardware.servicetrackeraidl-service
+vendor/bin/qt-service
+vendor/etc/init/init.qt-service.rc
+vendor/etc/init/vendor.qti.hardware.servicetrackeraidl-service.rc
+vendor/etc/vintf/manifest/vendor.qti.hardware.servicetrackeraidl-service.xml
+vendor/lib64/hw/vendor.qti.hardware.servicetrackeraidl-impl.so
+
 # QVIRT
 vendor/lib64/libVirtClientInterface.so
 vendor/lib64/libidv.so
@@ -819,30 +819,14 @@ vendor/lib64/libscveObjectSegmentation.so
 vendor/lib64/libscveObjectTracker.so
 vendor/lib64/libscveObjectTracker_stub.so
 
-# SMC Invoke
-vendor/bin/hw/vendor.qti.hardware.minkipcbinder@1.0-service
-vendor/bin/hlosminkdaemon
-vendor/etc/init/hlosminkdaemon.rc
-vendor/etc/init/vendor.qti.hardware.minkipcbinder@1.0-service.rc
-vendor/etc/vintf/manifest/vendor.qti.hardware.minkipcbinder-service.xml
-vendor/lib64/libminkdescriptor.so
-vendor/lib64/libminkipcbinder_vendor.so
-vendor/lib64/libminksocket_vendor.so
-vendor/lib64/libqcbor.so
-vendor/lib64/vendor.qti.hardware.minkipcbinder-V1-ndk.so
-
-# Snapdragon services
-vendor/bin/snapdragon_services
-vendor/etc/init/snapdragon_services.rc
-vendor/etc/vintf/manifest/snapdragon_services.xml
-vendor/lib64/vendor.qti.snapdragonServices-V2-ndk.so
-vendor/lib64/vendor.qti.snapdragonServices.qape-V1-ndk.so
-
-# SSR
-vendor/bin/ssr_diag
-vendor/bin/ssr_setup
-vendor/bin/subsystem_ramdump
-vendor/lib64/libsubsystem_control.so
+# Secureprocessor
+vendor/bin/hw/vendor.qti.hardware.secureprocessor
+vendor/etc/init/vendor.qti.hardware.secureprocessor.rc
+vendor/etc/vintf/manifest/vendor.qti.hardware.secureprocessor.xml
+vendor/lib64/vendor.qti.hardware.secureprocessor.common-V1-ndk.so
+vendor/lib64/vendor.qti.hardware.secureprocessor.common-helper.so
+vendor/lib64/vendor.qti.hardware.secureprocessor.config-V1-ndk.so
+vendor/lib64/vendor.qti.hardware.secureprocessor.device-V1-ndk.so
 
 # Security
 vendor/bin/hw/android.hardware.security.onekeymint-service-qti
@@ -862,15 +846,6 @@ vendor/lib64/libmodem_device_ids.so
 vendor/lib64/libmodem_device_ids_bindgen.dylib.so
 vendor/lib64/libqtikeymaster4.so
 vendor/lib64/libspcom.so
-
-# Secureprocessor
-vendor/bin/hw/vendor.qti.hardware.secureprocessor
-vendor/etc/init/vendor.qti.hardware.secureprocessor.rc
-vendor/etc/vintf/manifest/vendor.qti.hardware.secureprocessor.xml
-vendor/lib64/vendor.qti.hardware.secureprocessor.common-V1-ndk.so
-vendor/lib64/vendor.qti.hardware.secureprocessor.common-helper.so
-vendor/lib64/vendor.qti.hardware.secureprocessor.config-V1-ndk.so
-vendor/lib64/vendor.qti.hardware.secureprocessor.device-V1-ndk.so
 
 # Sensors
 odm/bin/oplus_sensor_fb
@@ -1013,6 +988,31 @@ vendor/etc/sensors/config/sns_tilt_to_wake.json
 vendor/etc/sensors/config/sns_transport_ppe.json
 vendor/etc/sensors/sns_reg_config
 
+# SMC Invoke
+vendor/bin/hw/vendor.qti.hardware.minkipcbinder@1.0-service
+vendor/bin/hlosminkdaemon
+vendor/etc/init/hlosminkdaemon.rc
+vendor/etc/init/vendor.qti.hardware.minkipcbinder@1.0-service.rc
+vendor/etc/vintf/manifest/vendor.qti.hardware.minkipcbinder-service.xml
+vendor/lib64/libminkdescriptor.so
+vendor/lib64/libminkipcbinder_vendor.so
+vendor/lib64/libminksocket_vendor.so
+vendor/lib64/libqcbor.so
+vendor/lib64/vendor.qti.hardware.minkipcbinder-V1-ndk.so
+
+# Snapdragon services
+vendor/bin/snapdragon_services
+vendor/etc/init/snapdragon_services.rc
+vendor/etc/vintf/manifest/snapdragon_services.xml
+vendor/lib64/vendor.qti.snapdragonServices-V2-ndk.so
+vendor/lib64/vendor.qti.snapdragonServices.qape-V1-ndk.so
+
+# SSR
+vendor/bin/ssr_diag
+vendor/bin/ssr_setup
+vendor/bin/subsystem_ramdump
+vendor/lib64/libsubsystem_control.so
+
 # Synx
 vendor/lib64/libos.so
 vendor/lib64/libsynx.so
@@ -1043,6 +1043,13 @@ vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
 
+# Touch
+odm/bin/hw/vendor-oplus-hardware-touch-V2-hbp5-service
+odm/bin/touchDaemon
+odm/etc/init/init.touchDaemon.rc
+odm/etc/init/vendor-oplus-hardware-touch-V2-hbp5-service.rc
+odm/etc/vintf/manifest/manifest_touch_aidl.xml
+
 # Trusted Execution Environment connector
 vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
 vendor/lib64/libGPMTEEC_vendor.so
@@ -1055,13 +1062,6 @@ vendor/lib64/libTxPwrJni.so
 vendor/lib64/libcpion.so
 vendor/lib64/libsi.so
 vendor/lib64/libtrustedapploader.so
-
-# Touch
-odm/bin/hw/vendor-oplus-hardware-touch-V2-hbp5-service
-odm/bin/touchDaemon
-odm/etc/init/init.touchDaemon.rc
-odm/etc/init/vendor-oplus-hardware-touch-V2-hbp5-service.rc
-odm/etc/vintf/manifest/manifest_touch_aidl.xml
 
 # Video
 vendor/lib64/libstreamparser.so

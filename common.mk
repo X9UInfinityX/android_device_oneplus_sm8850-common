@@ -4,9 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Add common definitions for Qualcomm
-$(call inherit-product, hardware/qcom-caf/common/common.mk)
-
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
@@ -32,6 +29,9 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script \
     xbl_config_arb_check
+
+# Add common definitions for Qualcomm
+$(call inherit-product, hardware/qcom-caf/common/common.mk)
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -180,23 +180,6 @@ PRODUCT_COPY_FILES += \
 # HWUI
 TARGET_USES_VULKAN := true
 
-# IPACM
-ifneq ($(TARGET_IS_TABLET),true)
-#PRODUCT_PACKAGES += \
-#    ipacm \
-#    IPACM_cfg.xml \
-#    IPACM_Filter_cfg.xml
-endif
-
-# IR Blaster
-ifneq ($(TARGET_IS_TABLET),true)
-PRODUCT_PACKAGES += \
-    android.hardware.ir-service.oplus
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/android.hardware.consumerir.xml
-endif
-
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -215,11 +198,32 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_oplus)
 
+# IPACM
+ifneq ($(TARGET_IS_TABLET),true)
+#PRODUCT_PACKAGES += \
+#    ipacm \
+#    IPACM_cfg.xml \
+#    IPACM_Filter_cfg.xml
+endif
+
+# IR Blaster
+ifneq ($(TARGET_IS_TABLET),true)
+PRODUCT_PACKAGES += \
+    android.hardware.ir-service.oplus
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/android.hardware.consumerir.xml
+endif
+
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := true
 
 #PRODUCT_COPY_FILES += \
 #    kernel/oneplus/sm8850/modules.systemdlkm_blocklist.msm.pineapple:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/system_dlkm.modules.blocklist
+
+# Keylayout
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl
 
 # Keymint
 PRODUCT_PACKAGES += \
@@ -228,10 +232,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
-
-# Keylayout
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl
 
 # Lineage Health
 PRODUCT_PACKAGES += \
@@ -320,14 +320,14 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set,qtipower,mode_ext_lib,power-ext-oplus)
 
-# QTI fwk-detect
-PRODUCT_PACKAGES += \
-    libvndfwk_detect_jni.qti_vendor # Needed by CNE app
-
 # QSPA
 PRODUCT_PACKAGES += \
     qspa_vendor.rc \
     vendor.qti.qspa-service
+
+# QTI fwk-detect
+PRODUCT_PACKAGES += \
+    libvndfwk_detect_jni.qti_vendor # Needed by CNE app
 
 # SecureElement
 ifneq ($(TARGET_IS_TABLET),true)
@@ -428,9 +428,6 @@ $(call soong_config_set,OPLUS_LINEAGE_TOUCH_HAL,INCLUDE_DIR,$(LOCAL_PATH)/touch/
 $(call soong_config_set_bool,OPLUS_LINEAGE_TOUCH_HAL,USE_OPLUSTOUCH,true)
 endif
 
-# Virtualization service
-$(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
-
 # Update engine
 PRODUCT_PACKAGES += \
     update_engine \
@@ -484,6 +481,9 @@ DEVICE_MANIFEST_FILE += \
 ODM_MANIFEST_FILES := \
     $(LOCAL_PATH)/vintf/network_manifest_odm.xml
 endif
+
+# Virtualization service
+$(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
 
 # WiFi
 PRODUCT_PACKAGES += \
