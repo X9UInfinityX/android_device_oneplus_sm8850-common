@@ -18,8 +18,6 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'vendor/oneplus/infiniti', #"FIXME: libqti-perfd" depends on undefined module "libdisplayconfig.qti".
-    'vendor/oneplus/macan', #"FIXME: libqti-perfd" depends on undefined module "libdisplayconfig.qti".
     'device/oneplus/sm8850-common',
     'hardware/qcom-caf/sm8850',
     'hardware/qcom-caf/wlan',
@@ -40,7 +38,16 @@ lib_fixups: lib_fixups_user_type = {
     (
         'com.qualcomm.qti.dpm.api@1.0',
         'libosensenativeproxy_client',
+        'libPanelChaplin',
+        'libpwirisfeature',
+        'vendor.oplus.hardware.cwb-V2-ndk',
+        'vendor.oplus.hardware.displaycolorfeature-V1-ndk',
         'vendor.oplus.hardware.subsys-V5-ndk',
+        'vendor.pixelworks.hardware.display@1.0',
+        'vendor.pixelworks.hardware.display@1.1',
+        'vendor.pixelworks.hardware.display@1.2',
+        'vendor.pixelworks.hardware.feature@1.0',
+        'vendor.pixelworks.hardware.feature@1.1',
         'vendor.qti.ImsRtpService-V2-ndk',
         'vendor.qti.diaghal-V1-ndk',
         'vendor.qti.hardware.dpmaidlservice-V1-ndk',
@@ -91,8 +98,23 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libaudioserviceexampleimpl.so': blob_fixup()
         .add_needed('libbluetooth_audio_session_aidl_shim.so')
         .add_needed('libaudioutils_shim.so'),
+    (
+        'vendor/lib64/libcwb_qcom_aidl.so',
+        'vendor/lib64/libhwcsensor.so',
+        'vendor/lib64/libsdmclient.so',
+    ): blob_fixup()
+        .replace_needed('vendor.qti.hardware.display.config-V11-ndk.so', 'vendor.qti.hardware.display.config-V13-ndk.so'),
+    (
+        'vendor/lib64/libpwirishalwrapper.so',
+        'vendor/lib64/libsdmclient.so',
+    ): blob_fixup()
+        .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
+    'vendor/lib64/libpwirishalwrapper.so': blob_fixup()
+        .replace_needed('android.hardware.graphics.composer3-V3-ndk.so', 'android.hardware.graphics.composer3-V4-ndk.so'),
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
         .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
+    'vendor/lib64/libsdmcore.so': blob_fixup()
+        .add_needed('libbase.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
