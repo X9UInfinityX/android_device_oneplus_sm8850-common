@@ -157,23 +157,17 @@ function configure_vm_params() {
 	# We store min_free_kbytes into a vendor property so that the PASR
 	# HAL can read and set the value for it.
 	setprop vendor.memory.min_free_kbytes $MinFreeKbytes
-
-	# configure boost pool
-	if [ $RamSizeGB -ge 10  ]; then
-		echo 128000 > /proc/boost_pool/camera_pages
-	fi
 }
 
 function configure_memory_parameters() {
 	# Set Memory parameters.
-	# comment config_zram and config_thp, use oplus customize config
-	#configure_zram_parameters
+
+	configure_zram_parameters
 	configure_read_ahead_kb_values
-	#configure_thp
+	configure_thp
 	# Enabling or disabling thp will reset the value of min_free_kbytes
 	# Call configure_vm_params after THP configuration
-	# removed by oplus mm
-	#configure_vm_params
+	configure_vm_params
 
 	echo 100 > /proc/sys/vm/swappiness
 
