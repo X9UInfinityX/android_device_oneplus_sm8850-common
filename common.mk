@@ -187,6 +187,13 @@ PRODUCT_PACKAGES += \
     charger_fstab.qcom \
     init.class_main.sh \
     init.oplus.rc \
+    init.kernel.post_boot-alor_default_6_2.sh \
+    init.kernel.post_boot-canoe_5_1.sh \
+    init.kernel.post_boot-canoe_5_2.sh \
+    init.kernel.post_boot-canoe_6_1.sh \
+    init.kernel.post_boot-canoe_default_6_2.sh \
+    init.kernel.post_boot-memory.sh \
+    init.kernel.post_boot.sh \
     init.qcom.post_boot.sh \
     init.qcom.early_boot.sh \
     init.qcom.rc \
