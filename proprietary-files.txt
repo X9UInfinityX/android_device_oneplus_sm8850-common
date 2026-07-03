@@ -637,9 +637,6 @@ vendor/lib64/libmemhalutils.so
 vendor/lib64/libqti-MemHal-client.so
 vendor/lib64/vendor.qti.MemHal-V1-ndk.so
 
-# Memory
-vendor/lib64/libvmmem.so
-
 # Misc
 odm/etc/init/init.oppo.reserve.rc
 
