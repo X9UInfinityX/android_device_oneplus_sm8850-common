@@ -361,10 +361,8 @@ odm/lib64/libmindroid-app.so
 odm/lib64/libmindroid-framework.so
 odm/lib64/libortc_so.so
 odm/lib64/libqti-radio-service.so
-odm/lib64/libradio-service.so
 odm/lib64/libradioapis.so
 odm/lib64/librfapis.so
-odm/lib64/libsubsys-service.so
 odm/lib64/libsubsys-utils.so
 odm/lib64/libvasapi.so
 odm/lib64/vendor.oplus.hardware.subsys-V5-ndk.so
