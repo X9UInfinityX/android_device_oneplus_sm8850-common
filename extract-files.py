@@ -90,6 +90,14 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(b'DEBUG_LEVEL = 3', b'DEBUG_LEVEL = 2'),
     'odm/etc/init/init.network.rc': blob_fixup()
         .regex_replace(r'/\* (Huo\.Chen@SYSTEM\.RF, 2024/09/06, Add for ICC) \*/', r'# \1'),
+    (
+        'odm/lib64/libqti-radio-service.so',
+        'odm/lib64/libradio-service.so',
+    ): blob_fixup()
+        .replace_needed(
+            'vendor.oplus.hardware.subsys_radio-V9-ndk.so',
+            'vendor.oplus.hardware.subsys_radio-V10-ndk.so',
+        ),
     'product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml': blob_fixup()
         .regex_replace('/my_product', '/product'),
     'system_ext/bin/horae': blob_fixup()
