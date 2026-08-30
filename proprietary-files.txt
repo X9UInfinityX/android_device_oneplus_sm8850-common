@@ -672,6 +672,7 @@ vendor/lib64/libcwb_client_vendor.so
 vendor/lib64/libcwb_qcom_aidl.so
 vendor/lib64/libdtlm.so
 vendor/lib64/vendor.oplus.hardware.cwb-V2-ndk.so
+vendor/lib64/vendor.oplus.hardware.cwb@1.0.so
 
 # OPLUS Log Core
 odm/bin/oldc_vnd
