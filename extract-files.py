@@ -40,6 +40,7 @@ lib_fixups: lib_fixups_user_type = {
         'libosensenativeproxy_client',
         'libPanelChaplin',
         'libpwirisfeature',
+        'vendor.oplus.hardware.communicationcenter-V2-ndk',
         'vendor.pixelworks.hardware.display@1.0',
         'vendor.pixelworks.hardware.display@1.1',
         'vendor.pixelworks.hardware.display@1.2',
