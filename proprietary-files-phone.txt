@@ -468,6 +468,7 @@ vendor/lib64/qcrilNr_aidl_IRadioMessaging.so
 vendor/lib64/qcrilNr_aidl_IRadioModem.so
 vendor/lib64/qcrilNr_aidl_IRadioNetwork.so
 vendor/lib64/qcrilNr_aidl_IRadioSap.so
+vendor/lib64/vendor.oplus.hardware.subsys_imsrtp-V1-ndk.so
 vendor/lib64/qcrilNr_aidl_IRadioSim.so
 vendor/lib64/qcrilNr_aidl_IRadioVoice.so
 vendor/lib64/qcrilNr_aidl_SecureElementService.so
