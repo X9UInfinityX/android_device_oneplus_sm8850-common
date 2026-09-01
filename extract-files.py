@@ -18,7 +18,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/oneplus/sm8850-common',
+    'device/oppo/sm8850-common',
     'hardware/oplus',
     'hardware/qcom-caf/sm8850',
     'hardware/qcom-caf/wlan',
@@ -149,6 +149,7 @@ module = ExtractUtilsModule(
     'sm8850-common',
     'oneplus',
     blob_fixups=blob_fixups,
+    device_rel_path='device/oppo/sm8850-common',
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
 )

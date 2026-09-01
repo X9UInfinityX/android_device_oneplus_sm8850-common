@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-COMMON_PATH := device/oneplus/sm8850-common
+COMMON_PATH := device/oppo/sm8850-common
 
 # A/B
 AB_OTA_UPDATER := true
