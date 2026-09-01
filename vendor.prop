@@ -139,6 +139,9 @@ ro.camerax.extensions.enabled=true
 ro.hardware.camera=oemlayer.v2
 vendor.camera.aux.packageexcludelist=org.telegram.messenger,org.thunderdog.challegram,us.zoom.videomeetings
 
+# Context Hub
+vendor.chre.preloaded_nanoapps.path=/apex/vendor.oplus.chre.continuity/etc/chre/qcom/sm8850,/vendor/lib/rfsa/adsp
+
 # Chipset
 ro.soc.manufacturer=QTI
 ro.vendor.board.family=f-canoe

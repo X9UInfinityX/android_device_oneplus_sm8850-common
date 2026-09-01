@@ -39,13 +39,7 @@ lib_fixups: lib_fixups_user_type = {
         'libolc_vnd',
         'libosensenativeproxy_client',
         'libPanelChaplin',
-        'libpwirisfeature',
         'vendor.oplus.hardware.communicationcenter-V2-ndk',
-        'vendor.pixelworks.hardware.display@1.0',
-        'vendor.pixelworks.hardware.display@1.1',
-        'vendor.pixelworks.hardware.display@1.2',
-        'vendor.pixelworks.hardware.feature@1.0',
-        'vendor.pixelworks.hardware.feature@1.1',
         'vendor.qti.ImsRtpService-V2-ndk',
         'vendor.qti.diaghal-V1-ndk',
         'vendor.qti.hardware.dpmaidlservice-V1-ndk',
@@ -90,10 +84,7 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(b'DEBUG_LEVEL = 3', b'DEBUG_LEVEL = 2'),
     'odm/etc/init/init.network.rc': blob_fixup()
         .regex_replace(r'/\* (Huo\.Chen@SYSTEM\.RF, 2024/09/06, Add for ICC) \*/', r'# \1'),
-    (
-        'odm/lib64/libqti-radio-service.so',
-        'odm/lib64/libradio-service.so',
-    ): blob_fixup()
+    'odm/lib64/libqti-radio-service.so': blob_fixup()
         .replace_needed(
             'vendor.oplus.hardware.subsys_radio-V9-ndk.so',
             'vendor.oplus.hardware.subsys_radio-V10-ndk.so',

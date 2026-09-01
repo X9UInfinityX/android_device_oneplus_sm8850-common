@@ -1,0 +1,6 @@
+# The multihal reports asynchronous sensor initialization failures to statsd.
+allow hal_sensors_default fwk_stats_service:service_manager find;
+
+# The prebuilt multihal uses libbinder's vendor backend while registering its
+# AIDL service.
+vndbinder_use(hal_sensors_default)

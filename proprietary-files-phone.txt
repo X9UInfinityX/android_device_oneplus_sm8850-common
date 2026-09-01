@@ -80,7 +80,7 @@ vendor/lib64/vendor.qti.latencyaidlservice-V1-ndk.so
 odm/etc/init/android.hardware.contexthub-service.qmi.rc
 odm/etc/vintf/manifest/android.hardware.contexthub-service.qmi.xml
 vendor/bin/hw/android.hardware.contexthub-service.qmi
-vendor/etc/chre/preloaded_nanoapps.json
+vendor/apex/vendor.oplus.chre.continuity.apex
 
 # Data
 vendor/bin/adpl
@@ -178,7 +178,6 @@ odm/lib64/librpmbengclient.so
 odm/lib64/libsecurity_event_dcs_vnd.so
 
 # GNSS
-odm/etc/init/lowi-server.rc
 odm/etc/apdr.conf
 odm/etc/gps.conf
 odm/etc/izat.conf
@@ -357,14 +356,14 @@ odm/lib64/libdmtp-protos-lite.so
 odm/lib64/libdmtp.so
 odm/lib64/libdmtpclient.so
 odm/lib64/libimsortcapis.so
+odm/lib64/libipcapis.so
+odm/lib64/libipc-framework.so
 odm/lib64/libmindroid-app.so
 odm/lib64/libmindroid-framework.so
 odm/lib64/libortc_so.so
 odm/lib64/libqti-radio-service.so
-odm/lib64/libradio-service.so
 odm/lib64/libradioapis.so
 odm/lib64/librfapis.so
-odm/lib64/libsubsys-service.so
 odm/lib64/libsubsys-utils.so
 odm/lib64/libvasapi.so
 odm/lib64/vendor.oplus.hardware.communicationcenter-V2-ndk.so

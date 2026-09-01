@@ -1,0 +1,4 @@
+# Match the production X9U policy used by the stock audio HAL.
+allow hal_audio_default proc:file write;
+set_prop(hal_audio_default, vendor_audio_prop)
+allow hal_audio_default fwk_stats_service:service_manager find;

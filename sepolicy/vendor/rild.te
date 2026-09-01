@@ -1,0 +1,2 @@
+# Required by the production X9U radio stack's PD locator client.
+get_prop(rild, vendor_pd_locater_dbg_prop)

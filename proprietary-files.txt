@@ -9,7 +9,6 @@ vendor/etc/acdbdata/haptics_data/tuning_data/haptics_vi_tuning_0_cdp.bin
 vendor/etc/acdbdata/haptics_data/tuning_data/haptics_vi_tuning_0_mtp.bin
 vendor/etc/acdbdata/haptics_data/tuning_data/haptics_vi_tuning_0_qrd.bin
 vendor/etc/acdbdata/nn_vad_models/fai__3.0.0_0.0__eai_5.6.0_enpuv6.pmd
-vendor/etc/acdbdata/wnr_models/wind_filter__1.0__48k__2ch__16b__eai_5.5.eai
 
 # ADSP
 vendor/bin/adsprpcd
@@ -212,6 +211,7 @@ vendor/lib64/libbluetooth_audio_session_aidl_qti.so
 vendor/lib64/libbluetooth_audio_session_qti.so
 vendor/lib64/libbluetooth_audio_session_qti_2_1.so
 vendor/lib64/libbt-hidlclient.so
+vendor/lib64/vendor.oplus.hardware.a2dp_offload-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.bluetooth.btavsprovider-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.fm-V1-ndk.so
@@ -337,23 +337,17 @@ vendor/lib64/vendor.qti.hardware.display.snapalloc-impl.so
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 
 # Display (Pixelworks)
-odm/lib64/libpwirisfeature.so
-odm/lib64/vendor.pixelworks.hardware.display@1.0.so
-odm/lib64/vendor.pixelworks.hardware.display@1.1.so
-odm/lib64/vendor.pixelworks.hardware.display@1.2.so
-odm/lib64/vendor.pixelworks.hardware.feature@1.0.so
-odm/lib64/vendor.pixelworks.hardware.feature@1.1.so
-vendor/lib64/libpwirisfeature.so;MODULE_SUFFIX=_vendor
+vendor/lib64/libpwirisfeature.so
 vendor/lib64/libpwirishal.so
 vendor/lib64/libpwirishalwrapper.so
 vendor/lib64/libpwirishardware_ext.so
 vendor/lib64/vendor.pixelworks.hardware.display-V3-ndk.so
-vendor/lib64/vendor.pixelworks.hardware.display@1.0.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.pixelworks.hardware.display@1.1.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.pixelworks.hardware.display@1.2.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.pixelworks.hardware.display@1.0.so
+vendor/lib64/vendor.pixelworks.hardware.display@1.1.so
+vendor/lib64/vendor.pixelworks.hardware.display@1.2.so
 vendor/lib64/vendor.pixelworks.hardware.feature-V2-ndk.so
-vendor/lib64/vendor.pixelworks.hardware.feature@1.0.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.pixelworks.hardware.feature@1.1.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.pixelworks.hardware.feature@1.0.so
+vendor/lib64/vendor.pixelworks.hardware.feature@1.1.so
 vendor/lib64/vendor.pixelworks.hardware.feature@1.2.so
 
 # Display (SDM)
@@ -665,7 +659,7 @@ odm/lib64/libdisplayaidlapis.so
 odm/lib64/libdisplayfossfeature_nature.so
 odm/lib64/libdpaservice.so
 odm/lib64/libstc_color_feature.so
-odm/lib64/vendor.oplus.hardware.display.MixLut3D-V2-ndk.so
+odm/lib64/vendor.oplus.hardware.display.MixLut3D-V1-ndk.so
 odm/lib64/vendor.oplus.hardware.displaycolorfeature-V1-ndk.so
 vendor/lib64/libPanelChaplin.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libcwb_client_vendor.so
@@ -1011,6 +1005,7 @@ vendor/lib64/libQshQmiIDL.so
 vendor/lib64/libQshSession.so
 vendor/lib64/libqsh.so
 vendor/lib64/libqsh_ble_pb.so
+vendor/lib64/liboplus_sensor_stats.so
 vendor/lib64/libsensinghubapi-prop.so
 vendor/lib64/libsensinghubapi.so
 vendor/lib64/libsensinghubsession.so
@@ -1087,7 +1082,6 @@ vendor/etc/sensors/config/molokai_vertigo_mmc56x3x_0.json
 vendor/etc/sensors/config/oplus_camera_aon.json
 vendor/etc/sensors/config/qsh_ble.json
 vendor/etc/sensors/config/qsh_camera_common.json
-vendor/etc/sensors/config/qsh_camera_common_sm8845.json
 vendor/etc/sensors/config/qsh_camera_fairladyExfront_3.json
 vendor/etc/sensors/config/qsh_camera_fairladyfront_3.json
 vendor/etc/sensors/config/qsh_camera_imx688_6.json
@@ -1098,7 +1092,6 @@ vendor/etc/sensors/config/qsh_camera_lighthousefront_1.json
 vendor/etc/sensors/config/qsh_camera_macanExFront_4.json
 vendor/etc/sensors/config/qsh_camera_macanFront_4.json
 vendor/etc/sensors/config/qsh_camera_ov32c4c_4.json
-vendor/etc/sensors/config/qsh_camera_ov32c4c_4_sm8845.json
 vendor/etc/sensors/config/qsh_camera_s5kjn5_3.json
 vendor/etc/sensors/config/qsh_camera_s5kjn5_3_actuator.json
 vendor/etc/sensors/config/qsh_camera_swangoosefrontmain_3.json
