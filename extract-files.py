@@ -50,6 +50,15 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'odm/bin/hw/vendor.oplus.hardware.charger-V11-service': blob_fixup()
+        .binary_regex_replace(
+            b'/data/%d-%02d-%02d_%02d-%02d-%02d_bcc.csv',
+            b'/data/vendor/battery/%d-%02d-%02d_bcc.csv',
+        )
+        .binary_regex_replace(
+            b'/data/%d-%02d-%02d_%02d-%02d-%02d_eis.csv',
+            b'/data/vendor/battery/%d-%02d-%02d_eis.csv',
+        ),
     'odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff': blob_fixup()
         .add_needed('libshims_aidl_fingerprint_v3.oplus.so'),
     (
